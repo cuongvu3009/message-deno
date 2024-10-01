@@ -1,0 +1,10 @@
+{
+  "entry": "./app.js",
+  "env": {
+    "POSTGRES_HOST": "localhost",
+    "POSTGRES_PORT": "5432",
+    "POSTGRES_DB": "messages",
+    "POSTGRES_USER": "postgres",
+    "POSTGRES_PASSWORD": "099730"
+  }
+}
