@@ -7,9 +7,9 @@ const sql = postgres({
   username: "admin",
   password: "7vQd7nPmxi6adWhmtfXvFLWJfBH0cqRp",
   ssl: true, // Ensure SSL is enabled for secure connections
-  max: 10, // Maximum number of connections in the pool
-  idle_timeout: 10, // Connection will be closed after being idle for 10 seconds
-  connection_timeout: 10, // Will attempt to connect for 10 seconds before failing
+  max: 20, // Maximum number of connections in the pool
+  idle_timeout: 20, // Connection will be closed after being idle for 10 seconds
+  connection_timeout: 20, // Will attempt to connect for 10 seconds before failing
 });
 
 export { sql };
