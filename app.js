@@ -22,30 +22,24 @@ const redirectTo = (path) => {
 
 // Handle incoming HTTP requests
 const handleRequest = async (request) => {
-  try {
-    if (request.method === "GET") {
-      // Fetch messages and render
-      const messages = await messageService.getRecentMessages();
-      const data = { messages };
-      return new Response(await renderFile("index.eta", data), responseDetails);
-    } else if (request.method === "POST") {
-      // Handle form submission
-      const formData = await request.formData();
-      const sender = formData.get("sender");
-      const message = formData.get("message");
+  if (request.method === "GET") {
+    const messages = await messageService.getRecentMessages();
+    const data = { messages: messages };
 
-      if (sender && message) {
-        await messageService.addMessage(sender, message);
-      }
+    return new Response(await renderFile("index.eta", data), responseDetails);
+  } else if (request.method === "POST") {
+    const formData = await request.formData();
+    const sender = formData.get("sender");
+    const message = formData.get("message");
 
-      return redirectTo("/");
+    if (sender && message) {
+      await messageService.addMessage(sender, message);
     }
 
-    return new Response("Not found", { status: 404 });
-  } catch (error) {
-    console.error("Error handling request:", error.message);
-    return new Response("Internal Server Error", { status: 500 });
+    return redirectTo("/");
   }
+
+  return new Response("Not found", { status: 404 });
 };
 
 // Start the server

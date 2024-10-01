@@ -4,21 +4,23 @@ import { sql } from "../database/database.js";
 const addMessage = async (sender, message) => {
   try {
     await sql`INSERT INTO messages (sender, message) VALUES (${sender}, ${message})`;
-    console.log(`Added message from ${sender}: ${message}`);
+    console.log(`Added message from ${sender}: ${message}`); // Log the message
   } catch (error) {
-    console.error("Error adding message:", error.message);
+    console.error("Error adding message:", error);
     throw new Error("Failed to add message");
   }
 };
 
-// Function to retrieve the most recent messages
+// Function to retrieve the five most recent messages
+// Function to retrieve the five most recent messages
 const getRecentMessages = async () => {
   try {
     const messages =
-      await sql`SELECT sender, message FROM messages ORDER BY id DESC LIMIT 10`;
+      await sql`SELECT sender, message FROM messages ORDER BY id DESC LIMIT 5`;
+    console.log("Retrieved messages:", messages); // Log the retrieved messages
     return messages;
   } catch (error) {
-    console.error("Error retrieving messages:", error.message);
+    console.error("Error retrieving messages:", error);
     throw new Error("Failed to retrieve messages");
   }
 };

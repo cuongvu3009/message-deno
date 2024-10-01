@@ -20,7 +20,7 @@
   </form>
 
   <h2>Messages</h2>
-  
+  <ul>
     <% if (it.messages.length > 0) { %>
       <% it.messages.forEach(message => { %>
         <%= message.sender %>: <%= message.message %>
@@ -28,7 +28,6 @@
     <% } else { %>
       <li>No messages yet!</li>
     <% } %>
-  
-
+  </ul>
 </body>
 </html>
