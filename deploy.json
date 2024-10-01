@@ -3,8 +3,8 @@
   "env": {
     "POSTGRES_HOST": "localhost",
     "POSTGRES_PORT": "5432",
-    "POSTGRES_DB": "messages",
-    "POSTGRES_USER": "postgres",
-    "POSTGRES_PASSWORD": "099730"
+    "POSTGRES_DB": "messages_nrk1",
+    "POSTGRES_USER": "admin",
+    "POSTGRES_PASSWORD": "7vQd7nPmxi6adWhmtfXvFLWJfBH0cqRp"
   }
 }
