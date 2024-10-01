@@ -20,15 +20,15 @@
   </form>
 
   <h2>Messages</h2>
-<ul>
-  <% if (it.messages.length > 0) { %>
-    <% it.messages.forEach(message => { %>
-      <li><%= message.sender %>: <%= message.message %></li> <!-- Wrap each message in a list item -->
-    <% }); %>
-  <% } else { %>
-    <li>No messages yet!</li>
-  <% } %>
-</ul>
+  <ul>
+    <% if (it.messages.length > 0) { %>
+      <% it.messages.forEach(message => { %>
+        <li><%= message.sender %>: <%= message.message %></li>
+      <% }); %>
+    <% } else { %>
+      <li>No messages yet!</li>
+    <% } %>
+  </ul>
 
 </body>
 </html>
